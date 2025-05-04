@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - Locations</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS for locations page */
+      .locations-hero {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .locations-hero h1 {
+        margin-bottom: 1rem;
+      }
+
+      .locations-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .locations-list {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .location-item {
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .location-item:last-child {
+        border-bottom: none;
+      }
+
+      .location-item:hover,
+      .location-item.active {
+        background-color: #f8f9fa;
+      }
+
+      .location-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .location-title {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .location-status {
+        background-color: var(--success-color);
+        color: white;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      .location-status.closed {
+        background-color: var(--danger-color);
+      }
+
+      .location-details {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .location-icon {
+        color: var(--primary-color);
+        width: 20px;
+        text-align: center;
+      }
+
+      .location-map {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 100%;
+        min-height: 400px;
+        background-color: #f8f9fa;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .location-map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .working-hours {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .hours-table {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .hours-row.today {
+        background-color: rgba(0, 123, 255, 0.1);
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .find-us-section {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .find-options {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .find-option {
+        width: 200px;
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .find-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        .locations-container {
+          grid-template-columns: 1fr;
+        }
+
+        .location-map {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="locations.html" class="active">الفروع</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="locations-hero">
+        <div class="container">
+          <h1>فروعنا</h1>
+          <p>يمكنك زيارة أي من فروعنا في مختلف مناطق المملكة</p>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="locations-container">
+          <div class="locations-list">
+            <div class="location-item active" data-location="riyadh">
+              <div class="location-header">
+                <h3 class="location-title">فرع الرياض - الرئيسي</h3>
+                <div class="location-status">مفتوح</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>طريق الملك فهد، حي الملز، الرياض</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>+966 11 123 4567</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>9:00 صباحًا - 10:00 مساءً</div>
+              </div>
+            </div>
+
+            <div class="location-item" data-location="jeddah">
+              <div class="location-header">
+                <h3 class="location-title">فرع جدة</h3>
+                <div class="location-status">مفتوح</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>طريق الأمير محمد بن عبد العزيز، حي الروضة، جدة</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>+966 12 123 4567</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>9:00 صباحًا - 10:00 مساءً</div>
+              </div>
+            </div>
+
+            <div class="location-item" data-location="dammam">
+              <div class="location-header">
+                <h3 class="location-title">فرع الدمام</h3>
+                <div class="location-status">مفتوح</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>طريق الملك فهد، حي الشاطئ، الدمام</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>+966 13 123 4567</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>9:00 صباحًا - 10:00 مساءً</div>
+              </div>
+            </div>
+
+            <div class="location-item" data-location="khamis">
+              <div class="location-header">
+                <h3 class="location-title">فرع خميس مشيط</h3>
+                <div class="location-status">مفتوح</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>طريق الملك خالد، حي السد، خميس مشيط</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>+966 17 123 4567</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>9:00 صباحًا - 10:00 مساءً</div>
+              </div>
+            </div>
+
+            <div class="location-item" data-location="medina">
+              <div class="location-header">
+                <h3 class="location-title">فرع المدينة المنورة</h3>
+                <div class="location-status closed">مغلق اليوم</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>طريق الملك عبدالله، حي الدفاع، المدينة المنورة</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>+966 14 123 4567</div>
+              </div>
+              <div class="location-details">
+                <div class="location-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>9:00 صباحًا - 9:00 مساءً (مغلق يوم الجمعة)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-map" id="locationMap">
+            <iframe
+              src="/api/placeholder/800/450"
+              title="خريطة الموقع"
+            ></iframe>
+          </div>
+        </div>
+
+        <section class="working-hours">
+          <h2 class="section-title">ساعات العمل</h2>
+
+          <div class="table-container">
+            <table class="hours-table">
+              <thead>
+                <tr>
+                  <th>اليوم</th>
+                  <th>ساعات العمل</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hours-row" id="saturday">
+                  <td>السبت</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="sunday">
+                  <td>الأحد</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="monday">
+                  <td>الاثنين</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="tuesday">
+                  <td>الثلاثاء</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="wednesday">
+                  <td>الأربعاء</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="thursday">
+                  <td>الخميس</td>
+                  <td>9:00 صباحًا - 10:00 مساءً</td>
+                </tr>
+                <tr class="hours-row" id="friday">
+                  <td>الجمعة</td>
+                  <td>4:00 مساءً - 10:00 مساءً</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="find-us-section">
+          <h2 class="section-title">كيف تصل إلينا</h2>
+          <p>يمكنك الوصول إلينا بعدة طرق:</p>
+
+          <div class="find-options">
+            <div class="find-option">
+              <div class="find-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>خرائط جوجل</h3>
+              <p>ابحث عن "الماهر لقطع غيار السيارات" في خرائط جوجل</p>
+            </div>
+
+            <div class="find-option">
+              <div class="find-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <h3>زيارة الفرع</h3>
+              <p>زيارة أقرب فرع لك من الفروع المذكورة أعلاه</p>
+            </div>
+
+            <div class="find-option">
+              <div class="find-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>اتصل بنا</h3>
+              <p>اتصل بنا وسنساعدك في الوصول إلينا</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+
+      // Location items click handler
+      const locationItems = document.querySelectorAll(".location-item");
+      const locationMap = document.getElementById("locationMap");
+
+      locationItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          // Remove active class from all items
+          locationItems.forEach((el) => {
+            el.classList.remove("active");
+          });
+
+          // Add active class to clicked item
+          this.classList.add("active");
+
+          // Get location data attribute
+          const location = this.getAttribute("data-location");
+
+          // Update map (in a real implementation, you would update the iframe src with a real map)
+          // For this demo, we just show the location name
+          locationMap.innerHTML = `<iframe src="/api/placeholder/800/450" title="خريطة ${location}"></iframe>`;
+        });
+      });
+
+      // Highlight today's row in working hours table
+      function highlightToday() {
+        const days = [
+          "sunday",
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+        ];
+        const today = new Date().getDay();
+        const todayId = days[today];
+        document.getElementById(todayId).classList.add("today");
+      }
+
+      // Run on page load
+      highlightToday();
+    </script>
+  </body>
+</html>

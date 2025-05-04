@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - Offers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS for offers page */
+      .offers-hero {
+        background-color: var(--accent-color);
+        padding: 3rem 0;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #212529;
+      }
+
+      .offers-hero h1 {
+        margin-bottom: 1rem;
+      }
+
+      .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .offer-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s;
+      }
+
+      .offer-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .offer-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--accent-color);
+        color: #212529;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        z-index: 2;
+      }
+
+      .offer-image {
+        height: 200px;
+        background-color: var(--light-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        color: var(--primary-color);
+        position: relative;
+      }
+
+      .offer-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      .offer-content {
+        padding: 1.5rem;
+        background-color: white;
+      }
+
+      .offer-title {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .offer-description {
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+      }
+
+      .offer-price {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 1.5rem;
+      }
+
+      .price-old {
+        text-decoration: line-through;
+        color: var(--secondary-color);
+        margin-left: 0.5rem;
+      }
+
+      .price-new {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .timer-section {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .countdown-item {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .countdown-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .countdown-label {
+        font-size: 0.875rem;
+        color: var(--secondary-color);
+      }
+
+      .coupon-section {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .coupon-container {
+        max-width: 500px;
+        margin: 2rem auto;
+        border: 2px dashed var(--primary-color);
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: white;
+        position: relative;
+      }
+
+      .coupon-container::before,
+      .coupon-container::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: var(--light-color);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .coupon-container::before {
+        left: -20px;
+      }
+
+      .coupon-container::after {
+        right: -20px;
+      }
+
+      .coupon-code {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin: 1rem 0;
+        letter-spacing: 2px;
+      }
+
+      .coupon-info {
+        margin-bottom: 1rem;
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        .countdown {
+          flex-wrap: wrap;
+        }
+
+        .countdown-item {
+          width: 80px;
+          height: 80px;
+        }
+
+        .countdown-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="offers.html" class="active">العروض</a></li>
+              <li><a href="locations.html">الفروع</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="offers-hero">
+        <div class="container">
+          <h1>عروضنا المميزة</h1>
+          <p>
+            استفد من عروضنا المميزة على مجموعة متنوعة من قطع الغيار والخدمات
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <section class="timer-section">
+          <h2 class="section-title">عروض محدودة الوقت</h2>
+          <p>تنتهي هذه العروض خلال</p>
+
+          <div class="countdown">
+            <div class="countdown-item">
+              <div class="countdown-number" id="days">03</div>
+              <div class="countdown-label">أيام</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="hours">18</div>
+              <div class="countdown-label">ساعات</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="minutes">45</div>
+              <div class="countdown-label">دقائق</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="seconds">22</div>
+              <div class="countdown-label">ثواني</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="offers-grid">
+          <div class="offer-card animated">
+            <div class="offer-badge">خصم 20%</div>
+            <div class="offer-image">
+              <i class="fas fa-oil-can"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">زيت موبيل 1 سينثتيك 5W-30</h3>
+              <p class="offer-description">
+                زيت محرك اصطناعي بالكامل يوفر أداءً ممتازًا
+              </p>
+              <div class="offer-price">
+                <div class="price-new">200 ريال</div>
+                <div class="price-old">250 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >إضافة إلى السلة</a
+              >
+            </div>
+          </div>
+
+          <div class="offer-card animated">
+            <div class="offer-badge">خصم 15%</div>
+            <div class="offer-image">
+              <i class="fas fa-car-battery"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">بطارية AC Delco 60 أمبير</h3>
+              <p class="offer-description">بطارية ذات أداء عالي وعمر طويل</p>
+              <div class="offer-price">
+                <div class="price-new">300 ريال</div>
+                <div class="price-old">350 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >إضافة إلى السلة</a
+              >
+            </div>
+          </div>
+
+          <div class="offer-card animated">
+            <div class="offer-badge">عرض خاص</div>
+            <div class="offer-image">
+              <i class="fas fa-filter"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">طقم فلاتر كامل</h3>
+              <p class="offer-description">فلتر زيت + فلتر هواء + فلتر بنزين</p>
+              <div class="offer-price">
+                <div class="price-new">180 ريال</div>
+                <div class="price-old">240 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >إضافة إلى السلة</a
+              >
+            </div>
+          </div>
+
+          <div class="offer-card animated">
+            <div class="offer-badge">خصم 25%</div>
+            <div class="offer-image">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">بواجي NGK اليابانية</h3>
+              <p class="offer-description">طقم بواجي أصلية لأداء أفضل للمحرك</p>
+              <div class="offer-price">
+                <div class="price-new">150 ريال</div>
+                <div class="price-old">200 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >إضافة إلى السلة</a
+              >
+            </div>
+          </div>
+
+          <div class="offer-card animated">
+            <div class="offer-badge">2 بسعر 1</div>
+            <div class="offer-image">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">مساحات زجاج بوش</h3>
+              <p class="offer-description">أحصل على مساحتين بسعر واحدة</p>
+              <div class="offer-price">
+                <div class="price-new">80 ريال</div>
+                <div class="price-old">160 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >إضافة إلى السلة</a
+              >
+            </div>
+          </div>
+
+          <div class="offer-card animated">
+            <div class="offer-badge">عرض حصري</div>
+            <div class="offer-image">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="offer-content">
+              <h3 class="offer-title">خدمة تغيير الزيت مجانًا</h3>
+              <p class="offer-description">عند شراء زيت وفلتر زيت من المتجر</p>
+              <div class="offer-price">
+                <div class="price-new">0 ريال</div>
+                <div class="price-old">50 ريال</div>
+              </div>
+              <a href="#" class="btn btn-primary" style="width: 100%"
+                >احجز موعدًا</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="coupon-section">
+          <h2 class="section-title">كوبونات الخصم</h2>
+          <p>استخدم كوبونات الخصم التالية للحصول على خصومات إضافية</p>
+
+          <div class="coupon-container">
+            <h3>خصم 10% على جميع المنتجات</h3>
+            <div class="coupon-code">ALMAHER10</div>
+            <p class="coupon-info">صالح حتى 30 يونيو 2025</p>
+            <button
+              class="btn btn-outline"
+              onclick="copyToClipboard('ALMAHER10')"
+              id="couponBtn"
+            >
+              نسخ الكود
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+
+      // Countdown timer
+      function updateCountdown() {
+        // Set the countdown to 3 days from now
+        const now = new Date();
+        const endDate = new Date(now);
+        endDate.setDate(endDate.getDate() + 3);
+        endDate.setHours(23, 59, 59, 0);
+
+        const diff = endDate - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").textContent = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").textContent = seconds
+          .toString()
+          .padStart(2, "0");
+      }
+
+      // Update countdown every second
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Copy coupon code to clipboard
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function () {
+          const couponBtn = document.getElementById("couponBtn");
+          couponBtn.textContent = "تم النسخ!";
+          setTimeout(function () {
+            couponBtn.textContent = "نسخ الكود";
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

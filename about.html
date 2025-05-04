@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - About Us</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS for about page */
+      .about-hero {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .about-hero h1 {
+        margin-bottom: 1rem;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .about-text h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
+
+      .about-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .about-image i {
+        font-size: 10rem;
+        color: var(--primary-color);
+      }
+
+      .milestones {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+      }
+
+      .milestone-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .milestone-item {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .milestone-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .milestone-year {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .team-section {
+        margin-bottom: 3rem;
+      }
+
+      .team-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .team-photo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light-color);
+        color: var(--primary-color);
+        font-size: 5rem;
+      }
+
+      .team-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .team-role {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      .values-section {
+        margin-bottom: 3rem;
+      }
+
+      .values-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .value-item {
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid var(--primary-color);
+      }
+
+      .value-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .about-image {
+          order: -1;
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="locations.html">الفروع</a></li>
+              <li><a href="about.html" class="active">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="about-hero">
+        <div class="container">
+          <h1>من نحن</h1>
+          <p>
+            تعرف على قصة شركة الماهر لقطع غيار السيارات، أحد أكبر وأفضل موزعي
+            قطع غيار السيارات في المملكة العربية السعودية
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <section class="about-content">
+          <div class="about-text">
+            <h2>قصتنا</h2>
+            <p>
+              تأسست شركة الماهر لقطع غيار السيارات في عام 2000 على يد مجموعة من
+              الخبراء في مجال قطع غيار السيارات. بدأنا بمتجر صغير في مدينة
+              الرياض، وبفضل التزامنا بتقديم منتجات عالية الجودة وخدمة عملاء
+              ممتازة، تمكنا من التوسع وافتتاح فروع في مختلف مناطق المملكة.
+            </p>
+            <p>
+              نحن نفخر بأننا نقدم قطع غيار أصلية وبديلة عالية الجودة لجميع أنواع
+              السيارات، وبأسعار منافسة. كما نقدم ضمانًا شاملًا على جميع
+              منتجاتنا، مما يجعلنا الخيار الأول للعديد من العملاء في المملكة.
+            </p>
+            <p>
+              اليوم، أصبحت شركة الماهر واحدة من أكبر موزعي قطع غيار السيارات في
+              المملكة العربية السعودية، مع شبكة توزيع واسعة تغطي مختلف مناطق
+              المملكة، بالإضافة إلى متجر إلكتروني يتيح للعملاء طلب قطع الغيار
+              بكل سهولة ويسر.
+            </p>
+          </div>
+          <div class="about-image">
+            <i class="fas fa-store"></i>
+          </div>
+        </section>
+
+        <section class="milestones">
+          <div class="container">
+            <h2 class="section-title">محطات مهمة في مسيرتنا</h2>
+            <div class="milestone-list">
+              <div class="milestone-item animated">
+                <div class="milestone-icon">
+                  <i class="fas fa-store"></i>
+                </div>
+                <div class="milestone-year">2000</div>
+                <p>افتتاح أول متجر للشركة في مدينة الرياض</p>
+              </div>
+
+              <div class="milestone-item animated">
+                <div class="milestone-icon">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </div>
+                <div class="milestone-year">2005</div>
+                <p>افتتاح فروع جديدة في جدة والدمام</p>
+              </div>
+
+              <div class="milestone-item animated">
+                <div class="milestone-icon">
+                  <i class="fas fa-warehouse"></i>
+                </div>
+                <div class="milestone-year">2010</div>
+                <p>افتتاح مركز توزيع رئيسي في الرياض</p>
+              </div>
+
+              <div class="milestone-item animated">
+                <div class="milestone-icon">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div class="milestone-year">2015</div>
+                <p>إطلاق الموقع الإلكتروني وخدمة التوصيل</p>
+              </div>
+
+              <div class="milestone-item animated">
+                <div class="milestone-icon">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="milestone-year">2020</div>
+                <p>الحصول على جائزة أفضل موزع لقطع غيار السيارات</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="team-section" id="team">
+          <h2 class="section-title">فريق العمل</h2>
+          <div class="team-list" id="team-list">
+            <!-- يتم إنشاء هذا الجزء عن طريق جافا سكريبت -->
+          </div>
+        </section>
+
+        <section class="values-section">
+          <h2 class="section-title">قيمنا</h2>
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>الجودة</h3>
+              <p>
+                نقدم فقط منتجات عالية الجودة ونضمن رضا العملاء عن كل قطعة
+                نبيعها.
+              </p>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+              </div>
+              <h3>القيمة</h3>
+              <p>
+                نقدم أفضل قيمة مقابل المال، بأسعار منافسة دون المساس بالجودة.
+              </p>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3>خدمة العملاء</h3>
+              <p>
+                نقدم خدمة عملاء متميزة ونسعى دائمًا لتلبية احتياجات عملائنا
+                وتوقعاتهم.
+              </p>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-industry"></i>
+              </div>
+              <h3>الابتكار</h3>
+              <p>
+                نسعى دائمًا لتطوير خدماتنا ومنتجاتنا وإيجاد طرق أفضل لخدمة
+                عملائنا.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+
+      // Team members array
+      const teamMembers = [
+        {
+          name: "أحمد يحيى الحارثي",
+          role: "المدير التنفيذي",
+          icon: "fas fa-user-tie",
+        },
+        {
+          name: "فيصل عبدالله الفيفي",
+          role: "مدير العمليات",
+          icon: "fas fa-user-cog",
+        },
+        {
+          name: "عبدالرحمن الفيفي",
+          role: "مدير المبيعات",
+          icon: "fas fa-user",
+        },
+        {
+          name: "عبدالاله محمد العقيلي",
+          role: "مدير المشتريات",
+          icon: "fas fa-user-shield",
+        },
+      ];
+
+      // Function to shuffle array
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      // Function to display team members in random order
+      function displayTeamMembers() {
+        const teamList = document.getElementById("team-list");
+        const shuffledMembers = shuffleArray([...teamMembers]);
+
+        teamList.innerHTML = "";
+
+        shuffledMembers.forEach((member) => {
+          const memberElement = document.createElement("div");
+          memberElement.className = "team-member animated";
+
+          memberElement.innerHTML = `
+                    <div class="team-photo">
+                        <i class="${member.icon}"></i>
+                    </div>
+                    <h3 class="team-name">${member.name}</h3>
+                    <p class="team-role">${member.role}</p>
+                `;
+
+          teamList.appendChild(memberElement);
+        });
+      }
+
+      // Display team members on load
+      window.addEventListener("load", displayTeamMembers);
+
+      // Refresh team members order on page reload
+      document.addEventListener("DOMContentLoaded", displayTeamMembers);
+    </script>
+  </body>
+</html>

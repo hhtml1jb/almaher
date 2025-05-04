@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS for services page */
+      .services-hero {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .services-hero h1 {
+        margin-bottom: 1rem;
+      }
+
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .service-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        height: 150px;
+        background-color: var(--light-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--primary-color);
+      }
+
+      .service-content {
+        padding: 1.5rem;
+      }
+
+      .service-content h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .process-section {
+        background-color: var(--light-color);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+      }
+
+      .process-steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+        position: relative;
+      }
+
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 50px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background-color: var(--primary-color);
+        z-index: 1;
+      }
+
+      .process-step {
+        width: 200px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .step-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 1rem;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      .step-number {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .testimonials {
+        margin-bottom: 3rem;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: "\f10d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        font-size: 2rem;
+        color: var(--primary-color);
+        opacity: 0.2;
+      }
+
+      .testimonial-content {
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid var(--border-color);
+        padding-top: 1rem;
+      }
+
+      .author-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--light-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        color: var(--primary-color);
+      }
+
+      .author-details h4 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .author-details p {
+        margin: 0;
+        color: var(--secondary-color);
+        font-size: 0.875rem;
+      }
+
+      .cta-section {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 3rem;
+      }
+
+      .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-content p {
+        margin-bottom: 2rem;
+      }
+
+      .btn-light {
+        background-color: white;
+        color: var(--primary-color);
+        border-color: white;
+      }
+
+      .btn-light:hover {
+        background-color: #f8f9fa;
+        color: var(--primary-color);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .process-steps::before {
+          display: none;
+        }
+
+        .process-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .process-step {
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html" class="active">الخدمات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="locations.html">الفروع</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="services-hero">
+        <div class="container">
+          <h1>خدماتنا</h1>
+          <p>
+            نقدم مجموعة متنوعة من الخدمات لتلبية احتياجاتك المتعلقة بقطع غيار
+            السيارات
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <section class="services-list">
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="service-content">
+              <h3>البحث عن قطع الغيار</h3>
+              <p>
+                نساعدك في العثور على قطع الغيار التي تحتاجها لسيارتك بسرعة
+                وسهولة، سواء كانت قطع غيار أصلية أو بديلة.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <div class="service-content">
+              <h3>التوصيل السريع</h3>
+              <p>
+                نوفر خدمة توصيل سريعة لقطع الغيار إلى منزلك أو ورشة الإصلاح، مع
+                إمكانية تتبع الطلب أونلاين.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="service-content">
+              <h3>التركيب</h3>
+              <p>
+                يمكننا توفير خدمة التركيب لبعض قطع الغيار البسيطة، مثل البطاريات
+                والمساحات وغيرها.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="service-content">
+              <h3>الاستشارة الفنية</h3>
+              <p>
+                فريقنا من الخبراء مستعد لتقديم المشورة الفنية حول قطع الغيار
+                التي تناسب سيارتك.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="service-content">
+              <h3>ضمان المنتجات</h3>
+              <p>
+                نقدم ضمانًا شاملًا على جميع منتجاتنا، مع إمكانية الاستبدال أو
+                الاسترجاع في حالة وجود أي مشكلة.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+
+          <div class="service-card animated">
+            <div class="service-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="service-content">
+              <h3>الطلب المسبق</h3>
+              <p>
+                يمكنك طلب قطع الغيار مسبقًا في حالة عدم توفرها، وسنخبرك فور
+                وصولها.
+              </p>
+              <a href="#" class="btn btn-outline">المزيد من التفاصيل</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="process-section">
+          <h2 class="section-title">كيف نعمل</h2>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-icon">
+                <i class="fas fa-search"></i>
+                <div class="step-number">1</div>
+              </div>
+              <h3>البحث</h3>
+              <p>
+                نبحث عن قطع الغيار التي تحتاجها بناءً على نوع سيارتك وموديلها
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-icon">
+                <i class="fas fa-check-circle"></i>
+                <div class="step-number">2</div>
+              </div>
+              <h3>التأكيد</h3>
+              <p>نتأكد من توفر القطع المطلوبة ونؤكد السعر والتفاصيل معك</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-icon">
+                <i class="fas fa-credit-card"></i>
+                <div class="step-number">3</div>
+              </div>
+              <h3>الدفع</h3>
+              <p>يمكنك الدفع بالطريقة التي تفضلها سواء نقدًا أو بالبطاقة</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-icon">
+                <i class="fas fa-truck"></i>
+                <div class="step-number">4</div>
+              </div>
+              <h3>التوصيل</h3>
+              <p>نوصل طلبك إلى المكان الذي تحدده في أسرع وقت ممكن</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="testimonials">
+          <h2 class="section-title">آراء العملاء</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p>
+                  أتعامل مع شركة الماهر منذ سنوات، وأنا راضٍ تمامًا عن جودة
+                  المنتجات وسرعة الخدمة. أنصح بالتعامل معهم.
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="author-details">
+                  <h4>عبدالله محمد</h4>
+                  <p>الرياض</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p>
+                  وفروا لي قطعة غيار نادرة لسيارتي القديمة، وبسعر معقول. شكرًا
+                  لكم على المجهود الرائع.
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="author-details">
+                  <h4>سعد عبدالعزيز</h4>
+                  <p>جدة</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p>
+                  خدمة ممتازة، والفريق متعاون جدًا ويقدم النصائح المفيدة. سأستمر
+                  في التعامل معهم بالتأكيد.
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="author-details">
+                  <h4>محمد خالد</h4>
+                  <p>الدمام</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="cta-content">
+            <h2>هل تحتاج إلى مساعدة في العثور على قطع غيار لسيارتك؟</h2>
+            <p>
+              فريقنا جاهز لمساعدتك. اتصل بنا اليوم واحصل على أفضل العروض على قطع
+              الغيار الأصلية والبديلة.
+            </p>
+            <a href="contact.html" class="btn btn-light">اتصل بنا الآن</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+    </script>
+  </body>
+</html>

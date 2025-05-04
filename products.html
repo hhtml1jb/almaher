@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - Products</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS for products page */
+      .product-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .category-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .category-icon {
+        height: 150px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--primary-color);
+      }
+
+      .category-info {
+        padding: 1.5rem;
+        background-color: white;
+      }
+
+      .category-info h3 {
+        margin-top: 0;
+      }
+
+      .product-filter {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .filter-button {
+        padding: 0.5rem 1rem;
+        background-color: #f8f9fa;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .filter-button:hover,
+      .filter-button.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      .best-sellers {
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html" class="active">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="locations.html">الفروع</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="container">
+        <h1 class="section-title">منتجاتنا</h1>
+
+        <div class="product-filter">
+          <button class="filter-button active" data-filter="all">الكل</button>
+          <button class="filter-button" data-filter="toyota">تويوتا</button>
+          <button class="filter-button" data-filter="nissan">نيسان</button>
+          <button class="filter-button" data-filter="hyundai">هيونداي</button>
+          <button class="filter-button" data-filter="kia">كيا</button>
+          <button class="filter-button" data-filter="chevrolet">
+            شيفروليه
+          </button>
+          <button class="filter-button" data-filter="ford">فورد</button>
+        </div>
+
+        <section class="product-categories">
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-oil-can"></i>
+            </div>
+            <div class="category-info">
+              <h3>زيوت المحرك</h3>
+              <p>
+                مجموعة متنوعة من أفضل زيوت المحرك التي تناسب جميع أنواع السيارات
+              </p>
+              <a href="#oils" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-car-battery"></i>
+            </div>
+            <div class="category-info">
+              <h3>بطاريات</h3>
+              <p>بطاريات عالية الجودة تضمن أداء موثوق وعمر طويل</p>
+              <a href="#batteries" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <div class="category-info">
+              <h3>قطع غيار المحرك</h3>
+              <p>
+                قطع غيار أصلية وبديلة عالية الجودة لجميع أنواع محركات السيارات
+              </p>
+              <a href="#engine-parts" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <div class="category-info">
+              <h3>القطع الكهربائية</h3>
+              <p>
+                قطع غيار كهربائية متنوعة تضمن أداء ممتاز لجميع أنظمة السيارة
+              </p>
+              <a href="#electrical" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-filter"></i>
+            </div>
+            <div class="category-info">
+              <h3>فلاتر</h3>
+              <p>جميع أنواع الفلاتر لضمان أداء أفضل وعمر أطول للمحرك</p>
+              <a href="#filters" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="category-info">
+              <h3>أنظمة الإشعال</h3>
+              <p>شمعات الإشعال وملفات الإشعال وقطع غيار نظام الإشعال</p>
+              <a href="#ignition" class="btn btn-outline">عرض المنتجات</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="best-sellers" id="oils">
+          <h2 class="section-title">زيوت المحرك الأكثر مبيعًا</h2>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>الماركة</th>
+                  <th>الوصف</th>
+                  <th>يناسب</th>
+                  <th>السعر</th>
+                  <th>التوفر</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>زيت محرك سينثتيك 5W-30</td>
+                  <td>موبيل 1</td>
+                  <td>زيت محرك اصطناعي بالكامل يوفر أداءً ممتازًا</td>
+                  <td>تويوتا، نيسان، هيونداي</td>
+                  <td>250 ريال</td>
+                  <td style="color: green">
+                    <i class="fas fa-check"></i> متوفر
+                  </td>
+                </tr>
+                <tr>
+                  <td>زيت محرك سينثتيك 5W-40</td>
+                  <td>شل هيليكس</td>
+                  <td>زيت محرك اصطناعي بالكامل للسيارات الحديثة</td>
+                  <td>مرسيدس، بي إم دبليو، أودي</td>
+                  <td>280 ريال</td>
+                  <td style="color: green">
+                    <i class="fas fa-check"></i> متوفر
+                  </td>
+                </tr>
+                <tr>
+                  <td>زيت محرك هجين 10W-40</td>
+                  <td>كاسترول</td>
+                  <td>زيت محرك شبه اصطناعي للسيارات القديمة</td>
+                  <td>السيارات الأمريكية واليابانية</td>
+                  <td>150 ريال</td>
+                  <td style="color: orange">
+                    <i class="fas fa-clock"></i> متوفر قريبًا
+                  </td>
+                </tr>
+                <tr>
+                  <td>زيت محرك سينثتيك 0W-20</td>
+                  <td>تويوتا جينوين</td>
+                  <td>زيت محرك اصطناعي أصلي من تويوتا</td>
+                  <td>تويوتا، لكزس</td>
+                  <td>220 ريال</td>
+                  <td style="color: green">
+                    <i class="fas fa-check"></i> متوفر
+                  </td>
+                </tr>
+                <tr>
+                  <td>زيت محرك سينثتيك 5W-30</td>
+                  <td>جينوين نيسان</td>
+                  <td>زيت محرك اصطناعي أصلي من نيسان</td>
+                  <td>نيسان، إنفينيتي</td>
+                  <td>240 ريال</td>
+                  <td style="color: red">
+                    <i class="fas fa-times"></i> غير متوفر
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="best-sellers" id="batteries">
+          <h2 class="section-title">البطاريات الأكثر مبيعًا</h2>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>الماركة</th>
+                  <th>الوصف</th>
+                  <th>يناسب</th>
+                  <th>السعر</th>
+                  <th>التوفر</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>بطارية 60 أمبير</td>
+                  <td>AC Delco</td>
+                  <td>بطارية ذات أداء عالي وعمر طويل</td>
+                  <td>السيارات الصغيرة والمتوسطة</td>
+                  <td>350 ريال</td>
+                  <td style="color: green">
+                    <i class="fas fa-check"></i> متوفر
+                  </td>
+                </tr>
+                <tr>
+                  <td>بطارية 75 أمبير</td>
+                  <td>فارتا</td>
+                  <td>بطارية عالية الجودة مع ضمان 3 سنوات</td>
+                  <td>السيارات المتوسطة والكبيرة</td>
+                  <td>450 ريال</td>
+                  <td style="color: green">
+                    <i class="fas fa-check"></i> متوفر
+                  </td>
+                </tr>
+                <tr>
+                  <td>بطارية 90 أمبير</td>
+                  <td>بوش</td>
+                  <td>بطارية ممتازة للسيارات الفاخرة والرياضية</td>
+                  <td>السيارات الفاخرة والرياضية</td>
+                  <td>550 ريال</td>
+                  <td style="color: orange">
+                    <i class="fas fa-clock"></i> متوفر قريبًا
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+
+      // Product filter functionality
+      const filterButtons = document.querySelectorAll(".filter-button");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          // Get filter value
+          const filter = this.getAttribute("data-filter");
+
+          // Filter logic would go here (for demonstration only)
+          console.log(`Filtering products for: ${filter}`);
+
+          // In a real implementation, you would show/hide products based on the filter
+        });
+      });
+    </script>
+  </body>
+</html>

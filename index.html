@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al-Maher Auto Parts - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Internal CSS */
+      .hero {
+        height: 60vh;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .featured-products {
+        padding: 2rem 0;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+
+      .product-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #007bff;
+      }
+
+      .brands {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+      }
+
+      .brand-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .brand-item {
+        display: flex;
+        align-items: center;
+        margin: 1rem;
+        font-weight: bold;
+      }
+
+      .brand-icon {
+        margin-right: 0.5rem;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h1>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html" class="active">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="locations.html">الفروع</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="hero"
+        style="
+          background-image: url('hero.jpg');
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <h2 style="color: wheat">أفضل قطع غيار السيارات في المملكة</h2>
+        <p>قطع غيار أصلية بجودة عالية وضمان شامل</p>
+        <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
+      </section>
+
+      <section class="featured-products container">
+        <h2 class="section-title">المنتجات المميزة</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-oil-can"></i>
+            </div>
+            <h3>زيوت محرك</h3>
+            <p>زيوت عالية الجودة لجميع أنواع السيارات</p>
+            <a href="products.html#oils" class="btn btn-outline">عرض المزيد</a>
+          </div>
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-car-battery"></i>
+            </div>
+            <h3>بطاريات</h3>
+            <p>بطاريات موثوقة تدوم طويلًا</p>
+            <a href="products.html#batteries" class="btn btn-outline"
+              >عرض المزيد</a
+            >
+          </div>
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3>قطع غيار المحرك</h3>
+            <p>قطع غيار أصلية لمحرك سيارتك</p>
+            <a href="products.html#engine-parts" class="btn btn-outline"
+              >عرض المزيد</a
+            >
+          </div>
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3>قطع غيار كهربائية</h3>
+            <p>أنظمة كهربائية وإلكترونية</p>
+            <a href="products.html#electrical" class="btn btn-outline"
+              >عرض المزيد</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="brands">
+        <div class="container">
+          <h2 class="section-title">العلامات التجارية</h2>
+          <div class="brand-list">
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> تويوتا
+            </div>
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> نيسان
+            </div>
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> هيونداي
+            </div>
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> كيا
+            </div>
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> فورد
+            </div>
+            <div class="brand-item">
+              <i class="brand-icon fas fa-star"></i> شيفروليه
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3><i class="fas fa-cogs"></i> Al-Maher Auto Parts</h3>
+            <p>
+              نوفر قطع غيار أصلية وبديلة لجميع أنواع السيارات بأفضل الأسعار
+              وبضمان شامل.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>اتصل بنا</h3>
+            <p><i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد</p>
+            <p><i class="fas fa-phone"></i> +966 55 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@almaher-parts.sa</p>
+          </div>
+          <div class="footer-social">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Al-Maher Auto Parts. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document
+        .querySelector(".mobile-nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.querySelector("i").classList.toggle("fa-bars");
+          this.querySelector("i").classList.toggle("fa-times");
+        });
+    </script>
+  </body>
+</html>
